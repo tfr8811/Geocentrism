@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d27qbs5ly5mn7"]
+
+[ext_resource type="PackedScene" uid="uid://b0q6s5vhq6tjc" path="res://Scenes/Player.tscn" id="1_vsvp5"]
+[ext_resource type="PackedScene" uid="uid://xgeq6ykqykqx" path="res://Scenes/Sun.tscn" id="2_vsvp5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vsvp5")]
+position = Vector2(551, 350)
+
+[node name="Sun" parent="." instance=ExtResource("2_vsvp5")]
+position = Vector2(147, 139)
