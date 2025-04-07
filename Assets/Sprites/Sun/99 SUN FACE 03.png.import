@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d8nyslqcursp"
-path="res://.godot/imported/SpaceDemon.png-2b5b71d77c9f965436ae16add83d43a9.ctex"
+uid="uid://b2dw3ptlu3mai"
+path="res://.godot/imported/99 SUN FACE 03.png-7bb17534bb92c8620a38d8f31fba53f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/SpaceDemon.png"
-dest_files=["res://.godot/imported/SpaceDemon.png-2b5b71d77c9f965436ae16add83d43a9.ctex"]
+source_file="res://Assets/Sprites/Sun/99 SUN FACE 03.png"
+dest_files=["res://.godot/imported/99 SUN FACE 03.png-7bb17534bb92c8620a38d8f31fba53f3.ctex"]
 
 [params]
 

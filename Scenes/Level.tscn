@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://d27qbs5ly5mn7"]
+[gd_scene load_steps=8 format=3 uid="uid://d27qbs5ly5mn7"]
 
 [ext_resource type="PackedScene" uid="uid://b0q6s5vhq6tjc" path="res://Scenes/Player.tscn" id="1_vsvp5"]
 [ext_resource type="PackedScene" uid="uid://xgeq6ykqykqx" path="res://Scenes/Sun.tscn" id="2_vsvp5"]
+[ext_resource type="Script" uid="uid://be7b7xsjsbxrb" path="res://Scenes/demon_spawner.gd" id="3_8rbpu"]
+[ext_resource type="Script" uid="uid://c1upygcptgtxn" path="res://Scenes/label.gd" id="4_fuudy"]
+[ext_resource type="Texture2D" uid="uid://c4h5mpg2pnn8u" path="res://Assets/Sprites/Background/BG_01.png" id="5_tj5wv"]
+[ext_resource type="Texture2D" uid="uid://1ks74ibutuog" path="res://Assets/Sprites/Background/BG_02.png" id="6_ienac"]
+[ext_resource type="Texture2D" uid="uid://dtmf1l68xkce0" path="res://Assets/Sprites/Background/BG_03.png" id="7_ienac"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -10,3 +15,32 @@ position = Vector2(551, 350)
 
 [node name="Sun" parent="." instance=ExtResource("2_vsvp5")]
 position = Vector2(147, 139)
+
+[node name="DemonSpawner" type="Node2D" parent="."]
+script = ExtResource("3_8rbpu")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 525.0
+offset_top = 34.0
+offset_right = 584.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(1, 0.760784, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("4_fuudy")
+
+[node name="BG_01" type="Sprite2D" parent="."]
+z_index = -5
+texture = ExtResource("5_tj5wv")
+centered = false
+
+[node name="BG_02" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("6_ienac")
+centered = false
+
+[node name="BG_03" type="Sprite2D" parent="."]
+z_index = -5
+texture = ExtResource("7_ienac")
+centered = false

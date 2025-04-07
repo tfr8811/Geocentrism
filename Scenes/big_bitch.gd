@@ -1,0 +1,40 @@
+extends RigidBody2D
+var speed = 100
+var health = 1
+var dead = false
+var invincibility = 0.0
+var launchTime = 0.0
+@export var sprite: AnimatedSprite2D
+@export var hitbox: CollisionShape2D
+func _process(delta: float) -> void:
+	if launchTime > 0.0: launchTime -= delta
+func _physics_process(delta: float) -> void:
+	# we want it to bounce a bit when damaged
+	if (is_instance_valid(GlobalWorldState.Player) && invincibility <= 0):
+		var player = GlobalWorldState.Player
+		var direction = player.global_position - global_position
+		direction = direction.normalized()
+		if launchTime <= 0: linear_velocity = lerp(linear_velocity, direction * speed, delta * 5.0)
+	# reduce invincibility, this prevents double hits
+	if invincibility > 0:
+		invincibility -= delta
+func take_damage():
+	if invincibility > 0 || dead:
+		return
+	elif health > 0:
+		health -= 1
+		invincibility = 1.0
+		sprite.play("low_health")
+	else:
+		dead = true
+		GlobalWorldState.Score += 1
+		sprite.modulate = Color(1, 0, 0)
+		sprite.play("death")
+		hitbox.disabled = true
+func launch(direction: Vector2):
+	linear_velocity = direction * speed * 5
+	launchTime = 0.25
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if dead: queue_free()

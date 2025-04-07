@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="6R4V17Y"
+run/main_scene="uid://d27qbs5ly5mn7"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -18,9 +19,20 @@ config/icon="res://icon.svg"
 
 GlobalWorldState="*res://Autoload/GlobalWorldState.gd"
 
+[display]
+
+window/size/viewport_width=1120
+window/size/viewport_height=680
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="6R4V17Y"
+
+[global_group]
+
+Damageable=""
+Enemy=""
 
 [rendering]
 

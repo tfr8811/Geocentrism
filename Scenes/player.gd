@@ -1,5 +1,7 @@
-extends CharacterBody2D
+extends Area2D
 var dead = false
+@export var moon: Node2D
+@export var rainbow: Sprite2D
 func _ready() -> void:
 	GlobalWorldState.Player = self
 func _physics_process(delta: float) -> void:
@@ -16,4 +18,19 @@ func check_edges():
 		position.y = 0
 func take_damage():
 	dead = true
-	self.queue_free()
+	GlobalWorldState.Score = 0
+	get_tree().call_deferred("reload_current_scene")
+
+func _on_body_entered(body: Node2D) -> void:
+	take_damage()
+
+
+func _on_moon_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		var direction = body.global_position - self.global_position
+		direction = direction.normalized()
+		body.launch(direction)
+	if body.is_in_group("Sun"):
+		moon.queue_free()
+		rainbow.hide()
+		body.oh_shit()

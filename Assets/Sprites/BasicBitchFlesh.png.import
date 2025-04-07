@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dftfolsd167t5"
-path="res://.godot/imported/Sun.png-ec934502e65f8869346b1dae43a4bbd3.ctex"
+uid="uid://bd8gov2xsxmh7"
+path="res://.godot/imported/BasicBitchFlesh.png-138344a307ff4efc838e01e7cb5eabb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Sun.png"
-dest_files=["res://.godot/imported/Sun.png-ec934502e65f8869346b1dae43a4bbd3.ctex"]
+source_file="res://Assets/Sprites/BasicBitchFlesh.png"
+dest_files=["res://.godot/imported/BasicBitchFlesh.png-138344a307ff4efc838e01e7cb5eabb7.ctex"]
 
 [params]
 

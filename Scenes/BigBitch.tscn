@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=3 uid="uid://bf2n33c8was3f"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://4u3624px4dri" path="res://Assets/Materials/bouncy.tres" id="1_php2e"]
+[ext_resource type="Script" uid="uid://bn5i72m3dsptw" path="res://Scenes/big_bitch.gd" id="1_x7uky"]
+[ext_resource type="Texture2D" uid="uid://bb5ixmmfbrah3" path="res://Scenes/BigBitch1.png" id="2_php2e"]
+[ext_resource type="Texture2D" uid="uid://cvjr5yqygnw0h" path="res://Assets/Sprites/Gore/GORE 01.png" id="3_pwik0"]
+[ext_resource type="Texture2D" uid="uid://ds57inc7am6dx" path="res://Assets/Sprites/Gore/GORE 02.png" id="4_4oa6l"]
+[ext_resource type="Texture2D" uid="uid://cdybam1a6wkk4" path="res://Assets/Sprites/BigBitch2.png" id="4_cnx81"]
+[ext_resource type="Texture2D" uid="uid://dslx2w3m207dv" path="res://Assets/Sprites/BigBitch3.png" id="5_drwwu"]
+[ext_resource type="Texture2D" uid="uid://n6nknay7j502" path="res://Assets/Sprites/Gore/GORE 03.png" id="5_sjim2"]
+[ext_resource type="Texture2D" uid="uid://bby78b73xtvms" path="res://Assets/Sprites/Gore/GORE 04.png" id="6_a2kul"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdav4"]
+radius = 68.593
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_drwwu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pwik0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4oa6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sjim2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a2kul")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_php2e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cnx81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_drwwu")
+}],
+"loop": false,
+"name": &"low_health",
+"speed": 2.0
+}]
+
+[node name="BigBitch" type="RigidBody2D" node_paths=PackedStringArray("sprite", "hitbox") groups=["Damageable", "Enemy"]]
+physics_material_override = ExtResource("1_php2e")
+gravity_scale = 0.0
+script = ExtResource("1_x7uky")
+sprite = NodePath("AnimatedSprite2D")
+hitbox = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mdav4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_drwwu")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

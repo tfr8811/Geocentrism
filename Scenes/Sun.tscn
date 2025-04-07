@@ -1,16 +1,100 @@
-[gd_scene load_steps=4 format=3 uid="uid://xgeq6ykqykqx"]
+[gd_scene load_steps=13 format=3 uid="uid://xgeq6ykqykqx"]
 
 [ext_resource type="Script" uid="uid://do5lom4d7od4h" path="res://Scenes/sun.gd" id="1_66ien"]
-[ext_resource type="Texture2D" uid="uid://dftfolsd167t5" path="res://Assets/Sprites/Sun.png" id="2_637gt"]
+[ext_resource type="Texture2D" uid="uid://bo2wjot128jp7" path="res://Assets/Sprites/Sun/99 SUN FACE 01.png" id="2_637gt"]
+[ext_resource type="Texture2D" uid="uid://bfomvqo8oqmdc" path="res://Assets/Sprites/Sun/SunRay.png" id="3_b1xxy"]
+[ext_resource type="Texture2D" uid="uid://ld4jq7gw17jx" path="res://Assets/Sprites/Sun/99 SUN FACE 05.png" id="3_wrtid"]
+[ext_resource type="Texture2D" uid="uid://b2dw3ptlu3mai" path="res://Assets/Sprites/Sun/99 SUN FACE 03.png" id="4_woe0u"]
+[ext_resource type="Texture2D" uid="uid://b1gyccc5lmqnl" path="res://Assets/Sprites/Sun/99 SUN FACE 04.png" id="5_ek0g3"]
+[ext_resource type="Texture2D" uid="uid://br5jxywi0m84l" path="res://Assets/Sprites/Sun/99_SUN_FACE_06.png" id="5_wrtid"]
+[ext_resource type="Texture2D" uid="uid://l8al44fp1eod" path="res://Assets/Sprites/Sun/99_SUN_FACE_07.png" id="6_ek0g3"]
+[ext_resource type="Texture2D" uid="uid://clm4wpqkpaihp" path="res://Assets/Sprites/Sun/99 SUN FACE 02.png" id="6_yywut"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1xxy"]
+radius = 75.06
 
-[node name="Sun" type="CharacterBody2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_t7xyq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wrtid")
+}],
+"loop": true,
+"name": &"celebration1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ek0g3")
+}],
+"loop": true,
+"name": &"celebration2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wrtid")
+}],
+"loop": true,
+"name": &"celebration3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_637gt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ek0g3")
+}],
+"loop": true,
+"name": &"grrr",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_woe0u")
+}],
+"loop": true,
+"name": &"oh_shit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yywut")
+}],
+"loop": true,
+"name": &"worried",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wrtid"]
+radius = 175.011
+
+[node name="Sun" type="CharacterBody2D" node_paths=PackedStringArray("raySprite", "faceAnim") groups=["Sun"]]
 script = ExtResource("1_66ien")
+raySprite = NodePath("Ray/SunRay")
+faceAnim = NodePath("SunFace")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_b1xxy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_637gt")
+[node name="SunFace" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_t7xyq")
+
+[node name="Ray" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ray"]
+z_index = -2
+shape = SubResource("CircleShape2D_wrtid")
+
+[node name="SunRay" type="Sprite2D" parent="Ray"]
+z_index = -2
+texture = ExtResource("3_b1xxy")
+
+[connection signal="body_entered" from="Ray" to="." method="_on_ray_body_entered"]
