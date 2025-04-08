@@ -4,7 +4,10 @@ var dead = false
 var launchTime = 0.0
 @export var eyeSprite: AnimatedSprite2D
 @export var fleshSprite: AnimatedSprite2D
+@export var bloodAuraSprite: AnimatedSprite2D
 @export var hitbox: CollisionShape2D
+func _ready() -> void:
+	bloodAuraSprite.play()
 func _process(delta: float) -> void:
 	if !dead: fleshSprite.rotate(-delta)
 	if launchTime > 0.0: launchTime -= delta
@@ -27,6 +30,7 @@ func take_damage():
 		fleshSprite.modulate = Color(1, 0, 0)
 		fleshSprite.play("death")
 		eyeSprite.queue_free()
+		bloodAuraSprite.queue_free()
 		hitbox.disabled = true
 
 func launch(direction: Vector2):

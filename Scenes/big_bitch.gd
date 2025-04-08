@@ -5,7 +5,10 @@ var dead = false
 var invincibility = 0.0
 var launchTime = 0.0
 @export var sprite: AnimatedSprite2D
+@export var bloodAuraSprite: AnimatedSprite2D
 @export var hitbox: CollisionShape2D
+func _ready() -> void:
+	bloodAuraSprite.play()
 func _process(delta: float) -> void:
 	if launchTime > 0.0: launchTime -= delta
 func _physics_process(delta: float) -> void:
@@ -35,6 +38,7 @@ func take_damage():
 		GlobalWorldState.Score += 1
 		sprite.modulate = Color(1, 0, 0)
 		sprite.play("death")
+		bloodAuraSprite.queue_free()
 		hitbox.disabled = true
 func launch(direction: Vector2):
 	velocity = direction * speed * 5
