@@ -2,6 +2,7 @@ extends Area2D
 var dead = false
 @export var moon: Node2D
 @export var rainbow: Sprite2D
+var moonExplosion = preload("res://Scenes/MoonExplosion.tscn")
 func _ready() -> void:
 	GlobalWorldState.Player = self
 func _physics_process(delta: float) -> void:
@@ -38,6 +39,13 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _on_moon_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Sun"):
+		# moon explosion
+		var iMoonExplostion = moonExplosion.instantiate()
+		get_parent().add_child(iMoonExplostion)
+		var moon_global_position = moon.get_child(0).global_position
+		iMoonExplostion.global_position = moon_global_position
+		# moon removal
 		moon.queue_free()
 		rainbow.hide()
+		# sun reaction
 		area.oh_shit()
