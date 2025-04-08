@@ -88,6 +88,8 @@ animations = [{
 }]
 
 [node name="BigBitch" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "bloodAuraSprite", "hitbox") groups=["Damageable", "Enemy"]]
+collision_layer = 257
+collision_mask = 257
 script = ExtResource("1_x7uky")
 sprite = NodePath("AnimatedSprite2D")
 bloodAuraSprite = NodePath("BloodAura")

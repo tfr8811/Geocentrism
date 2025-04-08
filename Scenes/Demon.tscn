@@ -92,6 +92,8 @@ animations = [{
 }]
 
 [node name="Demon" type="CharacterBody2D" node_paths=PackedStringArray("eyeSprite", "fleshSprite", "bloodAuraSprite", "hitbox") groups=["Damageable", "Enemy"]]
+collision_layer = 257
+collision_mask = 257
 script = ExtResource("1_t86be")
 eyeSprite = NodePath("EyeAnim")
 fleshSprite = NodePath("FleshAnim")

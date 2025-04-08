@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		var force = player.global_position - global_position
 		var distance = force.length()
 		if distance > 600:
-			distance = 600
+			distance = 400
 			if faceFreeze <= 0:
 				faceAnim.set_animation("worried")
 		elif distance < 200:
@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 					else:
 						faceAnim.set_animation("celebration3")
 					faceFreeze = 1.0
-		check_edges()
+		#check_edges()
 func apply_force(force: Vector2) -> void:
 	# acceleration = force / mass
 	# add acceleration to velocity

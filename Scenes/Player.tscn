@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0q6s5vhq6tjc"]
+[gd_scene load_steps=13 format=3 uid="uid://b0q6s5vhq6tjc"]
 
 [ext_resource type="Script" uid="uid://pavcdspmdfyx" path="res://Scenes/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://bgbvim6ek62p0" path="res://Assets/Sprites/EARTH/99 EARTH alone.png" id="2_dewec"]
@@ -17,6 +17,9 @@ radius = 101.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_52ee3"]
 radius = 23.0868
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_megsn"]
+radius = 300.0
 
 [node name="Player" type="Area2D" node_paths=PackedStringArray("moon", "rainbow")]
 script = ExtResource("1_kyqiw")
@@ -46,8 +49,9 @@ texture = ExtResource("4_bhhdu")
 [node name="RainbowLines" type="Sprite2D" parent="Moonbow/Rainbow"]
 texture = ExtResource("5_megsn")
 
-[node name="Moons" type="Node2D" parent="Moonbow"]
+[node name="Moons" type="Node2D" parent="Moonbow" node_paths=PackedStringArray("speedupZone")]
 script = ExtResource("5_nn08x")
+speedupZone = NodePath("SpeedupZone")
 
 [node name="Moon" type="Area2D" parent="Moonbow/Moons"]
 position = Vector2(0, -87)
@@ -59,6 +63,13 @@ shape = SubResource("CircleShape2D_52ee3")
 z_index = 3
 texture = ExtResource("6_52ee3")
 script = ExtResource("7_52ee3")
+
+[node name="SpeedupZone" type="Area2D" parent="Moonbow/Moons"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moonbow/Moons/SpeedupZone"]
+shape = SubResource("CircleShape2D_megsn")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
