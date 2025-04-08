@@ -3,12 +3,16 @@ var mass = 40
 @export var raySprite: Sprite2D
 @export var faceAnim: AnimatedSprite2D
 var faceFreeze = 0.0
+var flameDelay = 0.0
 var rng = RandomNumberGenerator.new()
 var velocity = Vector2(0, 0)
+var flame = preload("res://Scenes/Flame.tscn")
 func _process(delta: float) -> void:
 	raySprite.rotate(delta)
 	if (faceFreeze > 0):
 		faceFreeze -= delta
+	if (flameDelay > 0):
+		flameDelay -= delta
 func _physics_process(delta: float) -> void:
 	if (is_instance_valid(GlobalWorldState.Player)):
 		var player = GlobalWorldState.Player
@@ -33,6 +37,9 @@ func _physics_process(delta: float) -> void:
 		position += velocity * delta
 		for object in get_overlapping_bodies():
 			if object.is_in_group("Damageable"):
+				if flameDelay <= 0:
+					spawn_flames(object)
+					flameDelay = 0.3
 				object.take_damage()
 				# this one takes priority
 				if  !faceAnim.get_animation() == "oh_shit" \
@@ -65,7 +72,11 @@ func check_edges():
 	elif (position.y < 0):
 		position.y = 0
 		velocity.y *= 0
-
+func spawn_flames(body: CharacterBody2D):
+	for i in range (0,5):
+		var iflame = flame.instantiate()
+		body.add_child(iflame)
+		iflame.position += Vector2(rng.randf_range(-100,100), rng.randf_range(-100,100))
 
 func _on_ray_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemy") && faceFreeze <= 0:

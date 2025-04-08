@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://cicdn73pyqe0f"]
+
+[ext_resource type="Script" uid="uid://c65bk3q4vi85i" path="res://Scenes/flame.gd" id="1_5rf86"]
+[ext_resource type="Texture2D" uid="uid://cwucuechqi41j" path="res://Assets/Sprites/Particles/FLAME 02.png" id="1_tyesv"]
+[ext_resource type="Texture2D" uid="uid://pkoojmjre3aa" path="res://Assets/Sprites/Particles/FLAME 03.png" id="2_e3cus"]
+[ext_resource type="Texture2D" uid="uid://bldhcv7evxakh" path="res://Assets/Sprites/Particles/FLAME 04.png" id="3_3bboh"]
+[ext_resource type="Texture2D" uid="uid://b85thc0akia73" path="res://Assets/Sprites/Particles/FLAME 05.png" id="4_ncdh0"]
+[ext_resource type="Texture2D" uid="uid://baq868saf0h7b" path="res://Assets/Sprites/Particles/FLAME 06.png" id="5_nrpjl"]
+[ext_resource type="Texture2D" uid="uid://dkse1fktbt0rd" path="res://Assets/Sprites/Particles/FLAME 07.png" id="6_u07c0"]
+[ext_resource type="Texture2D" uid="uid://xfecsfxo3rhu" path="res://Assets/Sprites/Particles/FLAME 08.png" id="7_isr3w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bd5hu"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tyesv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e3cus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3bboh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ncdh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nrpjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u07c0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_isr3w")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 10.0
+}]
+
+[node name="Flame" type="AnimatedSprite2D"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_bd5hu")
+script = ExtResource("1_5rf86")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
