@@ -30,7 +30,14 @@ func _on_moon_body_entered(body: Node2D) -> void:
 		var direction = body.global_position - self.global_position
 		direction = direction.normalized()
 		body.launch(direction)
-	if body.is_in_group("Sun"):
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Sun"):
+		take_damage()
+
+
+func _on_moon_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Sun"):
 		moon.queue_free()
 		rainbow.hide()
-		body.oh_shit()
+		area.oh_shit()

@@ -1,9 +1,10 @@
-extends CharacterBody2D
+extends Area2D
 var mass = 40
 @export var raySprite: Sprite2D
 @export var faceAnim: AnimatedSprite2D
 var faceFreeze = 0.0
 var rng = RandomNumberGenerator.new()
+var velocity = Vector2(0, 0)
 func _process(delta: float) -> void:
 	raySprite.rotate(delta)
 	if (faceFreeze > 0):
@@ -29,10 +30,8 @@ func _physics_process(delta: float) -> void:
 		force = force.normalized()
 		force *= strength
 		apply_force(force)
-		move_and_slide()
-		for i in get_slide_collision_count():
-			var collision = get_slide_collision(i)
-			var object = collision.get_collider()
+		position += velocity * delta
+		for object in get_overlapping_bodies():
 			if object.is_in_group("Damageable"):
 				object.take_damage()
 				# this one takes priority
