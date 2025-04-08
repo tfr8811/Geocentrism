@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://bf2n33c8was3f"]
+[gd_scene load_steps=11 format=3 uid="uid://bf2n33c8was3f"]
 
-[ext_resource type="PhysicsMaterial" uid="uid://4u3624px4dri" path="res://Assets/Materials/bouncy.tres" id="1_php2e"]
 [ext_resource type="Script" uid="uid://bn5i72m3dsptw" path="res://Scenes/big_bitch.gd" id="1_x7uky"]
 [ext_resource type="Texture2D" uid="uid://bb5ixmmfbrah3" path="res://Scenes/BigBitch1.png" id="2_php2e"]
 [ext_resource type="Texture2D" uid="uid://cvjr5yqygnw0h" path="res://Assets/Sprites/Gore/GORE 01.png" id="3_pwik0"]
@@ -30,7 +29,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -52,9 +51,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="BigBitch" type="RigidBody2D" node_paths=PackedStringArray("sprite", "hitbox") groups=["Damageable", "Enemy"]]
-physics_material_override = ExtResource("1_php2e")
-gravity_scale = 0.0
+[node name="BigBitch" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "hitbox") groups=["Damageable", "Enemy"]]
 script = ExtResource("1_x7uky")
 sprite = NodePath("AnimatedSprite2D")
 hitbox = NodePath("CollisionShape2D")
