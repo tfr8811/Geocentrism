@@ -13,9 +13,8 @@ func _physics_process(delta: float) -> void:
 		var player = GlobalWorldState.Player
 		var force = player.global_position - global_position
 		var distance = force.length()
-		print_debug(distance)
 		if distance > 600:
-			distance = 800
+			distance = 600
 			if faceFreeze <= 0:
 				faceAnim.set_animation("worried")
 		elif distance < 200:
