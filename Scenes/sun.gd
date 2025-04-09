@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 		var force = player.global_position - global_position
 		var distance = force.length()
 		if distance > 600:
+			# when sun is really far away it will come back a bit faster
 			distance = 400
 			if faceFreeze <= 0:
 				faceAnim.set_animation("worried")
