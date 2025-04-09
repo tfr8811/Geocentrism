@@ -23,8 +23,8 @@ func _physics_process(delta: float) -> void:
 			distance = 400
 			if faceFreeze <= 0:
 				faceAnim.set_animation("worried")
-		elif distance < 200:
-			distance = 200
+		elif distance < 170:
+			distance = 170
 			if faceFreeze <= 0:
 				faceAnim.set_animation("worried")
 		else:

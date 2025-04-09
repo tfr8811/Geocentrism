@@ -19,9 +19,10 @@ radius = 101.0
 radius = 23.0868
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_megsn"]
-radius = 300.0
+radius = 400.0
 
 [node name="Player" type="Area2D" node_paths=PackedStringArray("moon", "rainbow")]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_kyqiw")
 moon = NodePath("Moonbow/Moons")
 rainbow = NodePath("Moonbow/Rainbow")
