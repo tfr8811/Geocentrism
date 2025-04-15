@@ -6,7 +6,7 @@ var faceFreeze = 0.0
 var flameDelay = 0.0
 var rng = RandomNumberGenerator.new()
 var velocity = Vector2(0, 0)
-var flame = preload("res://Scenes/Flame.tscn")
+var flame = preload("res://Scenes/Effects/Flame.tscn")
 func _process(delta: float) -> void:
 	raySprite.rotate(delta)
 	if (faceFreeze > 0):

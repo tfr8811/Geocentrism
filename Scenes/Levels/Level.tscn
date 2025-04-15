@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://d27qbs5ly5mn7"]
 
-[ext_resource type="PackedScene" uid="uid://b0q6s5vhq6tjc" path="res://Scenes/Player.tscn" id="1_vsvp5"]
-[ext_resource type="PackedScene" uid="uid://xgeq6ykqykqx" path="res://Scenes/Sun.tscn" id="2_vsvp5"]
-[ext_resource type="Script" uid="uid://be7b7xsjsbxrb" path="res://Scenes/demon_spawner.gd" id="3_8rbpu"]
-[ext_resource type="Script" uid="uid://c1upygcptgtxn" path="res://Scenes/label.gd" id="4_fuudy"]
+[ext_resource type="PackedScene" uid="uid://b0q6s5vhq6tjc" path="res://Scenes/Characters/Allies/Player.tscn" id="1_vsvp5"]
+[ext_resource type="PackedScene" uid="uid://xgeq6ykqykqx" path="res://Scenes/Characters/Allies/Sun.tscn" id="2_vsvp5"]
+[ext_resource type="Script" uid="uid://be7b7xsjsbxrb" path="res://Scenes/Characters/Enemies/demon_spawner.gd" id="3_8rbpu"]
+[ext_resource type="Script" uid="uid://c1upygcptgtxn" path="res://Scenes/UI/label.gd" id="4_fuudy"]
 [ext_resource type="Texture2D" uid="uid://c4h5mpg2pnn8u" path="res://Assets/Sprites/Background/BG_01.png" id="5_tj5wv"]
 [ext_resource type="Texture2D" uid="uid://1ks74ibutuog" path="res://Assets/Sprites/Background/BG_02.png" id="6_ienac"]
 [ext_resource type="Texture2D" uid="uid://dtmf1l68xkce0" path="res://Assets/Sprites/Background/BG_03.png" id="7_ienac"]

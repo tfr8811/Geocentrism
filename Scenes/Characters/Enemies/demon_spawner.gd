@@ -1,6 +1,6 @@
 extends Node2D
-var basic_bitch = load("res://Scenes/Demon.tscn")
-var big_bitch = load("res://Scenes/BigBitch.tscn")
+var basic_bitch = load("res://Scenes/Characters/Enemies/Demon.tscn")
+var big_bitch = load("res://Scenes/Characters/Enemies/BigBitch.tscn")
 var distance = 500
 var counter = 3
 var limit = 3;

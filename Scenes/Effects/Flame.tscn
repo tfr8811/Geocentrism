@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cicdn73pyqe0f"]
 
-[ext_resource type="Script" uid="uid://c65bk3q4vi85i" path="res://Scenes/flame.gd" id="1_5rf86"]
+[ext_resource type="Script" uid="uid://c65bk3q4vi85i" path="res://Scenes/Effects/flame.gd" id="1_5rf86"]
 [ext_resource type="Texture2D" uid="uid://cwucuechqi41j" path="res://Assets/Sprites/Particles/FLAME 02.png" id="1_tyesv"]
 [ext_resource type="Texture2D" uid="uid://pkoojmjre3aa" path="res://Assets/Sprites/Particles/FLAME 03.png" id="2_e3cus"]
 [ext_resource type="Texture2D" uid="uid://bldhcv7evxakh" path="res://Assets/Sprites/Particles/FLAME 04.png" id="3_3bboh"]

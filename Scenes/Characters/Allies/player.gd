@@ -2,7 +2,7 @@ extends Area2D
 var dead = false
 @export var moon: Node2D
 @export var rainbow: Sprite2D
-var moonExplosion = preload("res://Scenes/MoonExplosion.tscn")
+var moonExplosion = preload("res://Scenes/Characters/Allies/MoonExplosion.tscn")
 func _ready() -> void:
 	GlobalWorldState.Player = self
 func _physics_process(delta: float) -> void:

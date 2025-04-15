@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://xgeq6ykqykqx"]
 
-[ext_resource type="Script" uid="uid://do5lom4d7od4h" path="res://Scenes/sun.gd" id="1_66ien"]
+[ext_resource type="Script" uid="uid://do5lom4d7od4h" path="res://Scenes/Characters/Allies/sun.gd" id="1_66ien"]
 [ext_resource type="Texture2D" uid="uid://bo2wjot128jp7" path="res://Assets/Sprites/Sun/99 SUN FACE 01.png" id="2_637gt"]
 [ext_resource type="Texture2D" uid="uid://bfomvqo8oqmdc" path="res://Assets/Sprites/Sun/SunRay.png" id="3_b1xxy"]
 [ext_resource type="Texture2D" uid="uid://ld4jq7gw17jx" path="res://Assets/Sprites/Sun/99 SUN FACE 05.png" id="3_wrtid"]

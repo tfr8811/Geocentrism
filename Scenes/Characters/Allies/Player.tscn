@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://b0q6s5vhq6tjc"]
 
-[ext_resource type="Script" uid="uid://pavcdspmdfyx" path="res://Scenes/player.gd" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://pavcdspmdfyx" path="res://Scenes/Characters/Allies/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://bgbvim6ek62p0" path="res://Assets/Sprites/EARTH/99 EARTH alone.png" id="2_dewec"]
 [ext_resource type="Texture2D" uid="uid://7oe70gfndn64" path="res://Assets/Sprites/EARTH/99 EARTH frame.png" id="3_5ixxa"]
 [ext_resource type="Texture2D" uid="uid://dv2vomrefbau8" path="res://Assets/Sprites/EARTH/temp_ring_color.png" id="4_bhhdu"]
 [ext_resource type="Texture2D" uid="uid://c4l6jil8wanni" path="res://Assets/Sprites/EARTH/temp_ring_lines.png" id="5_megsn"]
-[ext_resource type="Script" uid="uid://qy5t2hg5dfmb" path="res://Scenes/moon_rotation.gd" id="5_nn08x"]
+[ext_resource type="Script" uid="uid://qy5t2hg5dfmb" path="res://Scenes/Characters/Allies/moon_rotation.gd" id="5_nn08x"]
 [ext_resource type="Texture2D" uid="uid://dc3usdwbqa7t0" path="res://Assets/Sprites/Moon/MOON 01.png" id="6_52ee3"]
-[ext_resource type="Script" uid="uid://nfqav08f0qy" path="res://Scenes/moon.gd" id="7_52ee3"]
+[ext_resource type="Script" uid="uid://nfqav08f0qy" path="res://Scenes/Characters/Allies/moon.gd" id="7_52ee3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mtbt0"]
 radius = 41.0122

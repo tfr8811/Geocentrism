@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://w664ap717wie" path="res://Assets/Sprites/Particles/MOON 02.png" id="2_kevg3"]
 [ext_resource type="Texture2D" uid="uid://12ean0kmkhnh" path="res://Assets/Sprites/Particles/MOON 03.png" id="3_ir4ok"]
 [ext_resource type="Texture2D" uid="uid://7n5l6g0jo2vs" path="res://Assets/Sprites/Particles/MOON 04.png" id="4_jslwy"]
-[ext_resource type="Script" uid="uid://b1awlc4tgvv0m" path="res://Scenes/moon_explosion.gd" id="5_kevg3"]
+[ext_resource type="Script" uid="uid://b1awlc4tgvv0m" path="res://Scenes/Characters/Allies/moon_explosion.gd" id="5_kevg3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ybw80"]
 animations = [{
