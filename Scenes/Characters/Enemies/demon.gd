@@ -2,6 +2,7 @@ extends CharacterBody2D
 var speed = 200
 var dead = false
 var launchTime = 0.0
+var freeze = 0.0
 @export var eyeSprite: AnimatedSprite2D
 @export var fleshSprite: AnimatedSprite2D
 @export var bloodAuraSprite: AnimatedSprite2D
@@ -11,7 +12,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !dead: fleshSprite.rotate(-delta)
 	if launchTime > 0.0: launchTime -= delta
+	if freeze > 0.0: freeze -= delta
 func _physics_process(delta: float) -> void:
+	if freeze > 0:
+		return
 	# death handler
 	if dead:
 		# keep momentum
@@ -40,7 +44,8 @@ func take_damage():
 		eyeSprite.queue_free()
 		bloodAuraSprite.queue_free()
 		hitbox.disabled = true
-
+func hitstun():
+	freeze = 0.5
 func launch(direction: Vector2):
 	velocity = direction * speed * 5
 	launchTime = 0.25

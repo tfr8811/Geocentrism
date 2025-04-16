@@ -3,9 +3,18 @@ var dead = false
 @export var moon: Node2D
 @export var rainbow: Sprite2D
 var moonExplosion = preload("res://Scenes/Characters/Allies/MoonExplosion.tscn")
+var freeze = 0.0
 func _ready() -> void:
 	GlobalWorldState.Player = self
+	position = get_global_mouse_position()
+func _process(delta: float) -> void:
+	if freeze > 0.0: freeze -= delta
+	elif dead:
+		GlobalWorldState.Score = 0 
+		get_tree().call_deferred("reload_current_scene")
 func _physics_process(delta: float) -> void:
+	if freeze > 0:
+		return
 	position = get_global_mouse_position()
 	check_edges()
 func check_edges():
@@ -18,11 +27,14 @@ func check_edges():
 	elif (position.y < 0):
 		position.y = 0
 func take_damage():
+	hitstun()
 	dead = true
-	GlobalWorldState.Score = 0
-	get_tree().call_deferred("reload_current_scene")
+
+func hitstun():
+	freeze = 0.5
 
 func _on_body_entered(body: Node2D) -> void:
+	body.hitstun()
 	take_damage()
 
 
@@ -34,6 +46,9 @@ func _on_moon_body_entered(body: Node2D) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Sun"):
+		# sun reaction
+		area.oh_shit()
+		area.hitstun()
 		take_damage()
 
 

@@ -7,6 +7,7 @@ var flameDelay = 0.0
 var rng = RandomNumberGenerator.new()
 var velocity = Vector2(0, 0)
 var flame = preload("res://Scenes/Effects/Flame.tscn")
+var freeze = 0.0
 func _ready() -> void:
 	position = GlobalWorldState.sunStartPosition
 func _process(delta: float) -> void:
@@ -15,7 +16,11 @@ func _process(delta: float) -> void:
 		faceFreeze -= delta
 	if (flameDelay > 0):
 		flameDelay -= delta
+	if freeze > 0.0: 
+		freeze -= delta
 func _physics_process(delta: float) -> void:
+	if freeze > 0:
+		return
 	if (is_instance_valid(GlobalWorldState.Player)):
 		var player = GlobalWorldState.Player
 		var force = player.global_position - global_position
@@ -89,3 +94,6 @@ func _on_ray_body_entered(body: Node2D) -> void:
 func oh_shit():
 	faceAnim.set_animation("oh_shit")
 	faceFreeze = 1.0
+
+func hitstun():
+	freeze = 0.5

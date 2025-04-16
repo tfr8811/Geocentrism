@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgl01h04586vw"]
+[gd_scene load_steps=8 format=3 uid="uid://dgl01h04586vw"]
 
 [ext_resource type="Script" uid="uid://gxb6mbiiwlo0" path="res://Scenes/UI/titlescreen.gd" id="1_30xqi"]
 [ext_resource type="Texture2D" uid="uid://c4h5mpg2pnn8u" path="res://Assets/Sprites/Background/BG_01.png" id="1_w11yq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dtmf1l68xkce0" path="res://Assets/Sprites/Background/BG_03.png" id="3_4b4j0"]
 [ext_resource type="PackedScene" uid="uid://xgeq6ykqykqx" path="res://Scenes/Characters/Allies/Sun.tscn" id="5_4b4j0"]
 [ext_resource type="Texture2D" uid="uid://dbs4xkdyefiu5" path="res://Assets/Sprites/EARTH/99 EARTH.png" id="6_5d0nj"]
+[ext_resource type="Texture2D" uid="uid://cs74ltghg74yx" path="res://Assets/Sprites/EARTH/MENU_spokes.png" id="7_vor7d"]
 
 [node name="Titlescreen" type="Control" node_paths=PackedStringArray("sun", "earth")]
 layout_mode = 3
@@ -62,5 +63,10 @@ position = Vector2(180, 460)
 [node name="99Earth" type="Sprite2D" parent="."]
 position = Vector2(540, 49)
 texture = ExtResource("6_5d0nj")
+
+[node name="MenuSpokes" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(540, 49)
+texture = ExtResource("7_vor7d")
 
 [connection signal="pressed" from="Begineth" to="." method="_on_begineth_pressed"]
