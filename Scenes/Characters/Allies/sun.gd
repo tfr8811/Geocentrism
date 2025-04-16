@@ -7,6 +7,8 @@ var flameDelay = 0.0
 var rng = RandomNumberGenerator.new()
 var velocity = Vector2(0, 0)
 var flame = preload("res://Scenes/Effects/Flame.tscn")
+func _ready() -> void:
+	position = GlobalWorldState.sunStartPosition
 func _process(delta: float) -> void:
 	raySprite.rotate(delta)
 	if (faceFreeze > 0):
@@ -30,8 +32,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			if faceFreeze <= 0:
 				faceAnim.set_animation("default")
-		# assuming G = 20000 and the masses are equal
-		var strength = 20000*mass*mass / (distance * distance);
+		# assuming G = 30000 and the masses are equal
+		var strength = 30000*mass*mass / (distance * distance);
 		force = force.normalized()
 		force *= strength
 		apply_force(force)
@@ -55,7 +57,7 @@ func _physics_process(delta: float) -> void:
 					else:
 						faceAnim.set_animation("celebration3")
 					faceFreeze = 1.0
-		#check_edges()
+		check_edges()
 func apply_force(force: Vector2) -> void:
 	# acceleration = force / mass
 	# add acceleration to velocity
