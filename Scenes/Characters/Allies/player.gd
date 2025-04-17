@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	if freeze > 0.0: freeze -= delta
 	elif dead:
 		GlobalWorldState.Score = 0 
-		get_tree().call_deferred("reload_current_scene")
+		get_tree().change_scene_to_file("res://Scenes/UI/Titlescreen.tscn")
 func _physics_process(delta: float) -> void:
 	if freeze > 0:
 		return
