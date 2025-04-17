@@ -31,10 +31,10 @@ rainbow = NodePath("Moonbow/Rainbow")
 shape = SubResource("CircleShape2D_mtbt0")
 
 [node name="Earth" type="Sprite2D" parent="."]
+z_index = -1
 texture = ExtResource("2_dewec")
 
 [node name="Frame" type="Sprite2D" parent="."]
-z_index = 1
 texture = ExtResource("3_5ixxa")
 
 [node name="Moonbow" type="Area2D" parent="."]
