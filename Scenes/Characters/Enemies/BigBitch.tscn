@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bf2n33c8was3f"]
+[gd_scene load_steps=20 format=3 uid="uid://bf2n33c8was3f"]
 
 [ext_resource type="Script" uid="uid://bn5i72m3dsptw" path="res://Scenes/Characters/Enemies/big_bitch.gd" id="1_x7uky"]
 [ext_resource type="Texture2D" uid="uid://bb5ixmmfbrah3" path="res://Scenes/Characters/Enemies/BigBitch1.png" id="2_php2e"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cqchrkuxjhev6" path="res://Assets/Sprites/Particles/BLOOD AURA 05.png" id="13_i7wks"]
 [ext_resource type="Texture2D" uid="uid://bx24hktrk5cm7" path="res://Assets/Sprites/Particles/BLOOD AURA 06.png" id="14_e3767"]
 [ext_resource type="Texture2D" uid="uid://cijmyquf6nmh1" path="res://Assets/Sprites/Particles/BLOOD AURA 07.png" id="15_mgbi7"]
+[ext_resource type="PackedScene" uid="uid://cs3daxf38xe6l" path="res://Scenes/Effects/Pointer.tscn" id="16_gkpcn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mdav4"]
 radius = 68.593
@@ -106,5 +107,9 @@ sprite_frames = SubResource("SpriteFrames_drwwu")
 modulate = Color(0.498039, 0, 0, 1)
 z_index = -3
 sprite_frames = SubResource("SpriteFrames_yq0kv")
+
+[node name="Pointer" parent="." node_paths=PackedStringArray("tracked") instance=ExtResource("16_gkpcn")]
+visible = false
+tracked = NodePath("..")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
