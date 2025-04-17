@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://xgeq6ykqykqx"]
+[gd_scene load_steps=17 format=3 uid="uid://xgeq6ykqykqx"]
 
 [ext_resource type="Script" uid="uid://do5lom4d7od4h" path="res://Scenes/Characters/Allies/sun.gd" id="1_66ien"]
 [ext_resource type="Texture2D" uid="uid://bo2wjot128jp7" path="res://Assets/Sprites/Sun/99 SUN FACE 01.png" id="2_637gt"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://br5jxywi0m84l" path="res://Assets/Sprites/Sun/99_SUN_FACE_06.png" id="5_wrtid"]
 [ext_resource type="Texture2D" uid="uid://l8al44fp1eod" path="res://Assets/Sprites/Sun/99_SUN_FACE_07.png" id="6_ek0g3"]
 [ext_resource type="Texture2D" uid="uid://clm4wpqkpaihp" path="res://Assets/Sprites/Sun/99 SUN FACE 02.png" id="6_yywut"]
+[ext_resource type="PackedScene" uid="uid://cs3daxf38xe6l" path="res://Scenes/Effects/Pointer.tscn" id="10_lcjfg"]
+[ext_resource type="Texture2D" uid="uid://biwkr7oet5ymb" path="res://Assets/Sprites/UI/Sun_Finder_01.png" id="11_5ejhv"]
+[ext_resource type="Script" uid="uid://ddklrh20ohwiv" path="res://Scenes/Characters/Allies/sun_finder_01.gd" id="12_5ejhv"]
+[ext_resource type="Texture2D" uid="uid://qrpxasiqvoyi" path="res://Assets/Sprites/UI/Sun_Finder_02.png" id="12_8kgut"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1xxy"]
 radius = 75.06
@@ -96,5 +100,18 @@ shape = SubResource("CircleShape2D_wrtid")
 [node name="SunRay" type="Sprite2D" parent="Ray"]
 z_index = -2
 texture = ExtResource("3_b1xxy")
+
+[node name="Pointer" parent="." node_paths=PackedStringArray("tracked") instance=ExtResource("10_lcjfg")]
+tracked = NodePath("..")
+
+[node name="SunFinder01" type="Sprite2D" parent="Pointer"]
+z_index = 5
+position = Vector2(0, 95)
+texture = ExtResource("11_5ejhv")
+script = ExtResource("12_5ejhv")
+
+[node name="SunFinder02" type="Sprite2D" parent="Pointer/SunFinder01"]
+z_index = 5
+texture = ExtResource("12_8kgut")
 
 [connection signal="body_entered" from="Ray" to="." method="_on_ray_body_entered"]

@@ -1,7 +1,7 @@
 extends Sprite2D
 @export var tracked: Node2D
 var center
-var padding = Vector2(100,100)
+var padding = Vector2(70,70)
 func _ready() -> void:
 	center = get_viewport_rect().size/2
 func _process(delta: float) -> void:

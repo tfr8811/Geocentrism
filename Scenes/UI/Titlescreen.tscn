@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgl01h04586vw"]
+[gd_scene load_steps=10 format=3 uid="uid://dgl01h04586vw"]
 
 [ext_resource type="Script" uid="uid://gxb6mbiiwlo0" path="res://Scenes/UI/titlescreen.gd" id="1_30xqi"]
 [ext_resource type="Texture2D" uid="uid://c4h5mpg2pnn8u" path="res://Assets/Sprites/Background/BG_01.png" id="1_w11yq"]
 [ext_resource type="Texture2D" uid="uid://1ks74ibutuog" path="res://Assets/Sprites/Background/BG_02.png" id="2_30xqi"]
 [ext_resource type="Texture2D" uid="uid://dtmf1l68xkce0" path="res://Assets/Sprites/Background/BG_03.png" id="3_4b4j0"]
 [ext_resource type="PackedScene" uid="uid://xgeq6ykqykqx" path="res://Scenes/Characters/Allies/Sun.tscn" id="5_4b4j0"]
+[ext_resource type="Texture2D" uid="uid://dq5w5fmfml7bx" path="res://Assets/Sprites/UI/BEGINETH.png" id="5_866kt"]
 [ext_resource type="Texture2D" uid="uid://dbs4xkdyefiu5" path="res://Assets/Sprites/EARTH/99 EARTH.png" id="6_5d0nj"]
+[ext_resource type="Texture2D" uid="uid://dlkirecfkkqrm" path="res://Assets/Sprites/UI/BEGINETH_Hover.png" id="6_8pb2j"]
 [ext_resource type="Texture2D" uid="uid://cs74ltghg74yx" path="res://Assets/Sprites/EARTH/MENU_spokes.png" id="7_vor7d"]
 
 [node name="Titlescreen" type="Control" node_paths=PackedStringArray("sun", "earth")]
@@ -30,14 +32,16 @@ z_index = -5
 texture = ExtResource("3_4b4j0")
 centered = false
 
-[node name="Begineth" type="Button" parent="."]
+[node name="Begineth" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 458.0
-offset_top = 304.0
-offset_right = 638.0
-offset_bottom = 367.0
-theme_override_font_sizes/font_size = 40
-text = "Begineth"
+offset_left = 300.0
+offset_top = 301.0
+offset_right = 794.0
+offset_bottom = 449.0
+texture_normal = ExtResource("5_866kt")
+texture_pressed = ExtResource("5_866kt")
+texture_hover = ExtResource("6_8pb2j")
+texture_focused = ExtResource("6_8pb2j")
 
 [node name="Options" type="Button" parent="."]
 visible = false

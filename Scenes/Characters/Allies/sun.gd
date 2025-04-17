@@ -8,6 +8,7 @@ var rng = RandomNumberGenerator.new()
 var velocity = Vector2(0, 0)
 var flame = preload("res://Scenes/Effects/Flame.tscn")
 var freeze = 0.0
+var padding = Vector2(-200,-200)
 func _ready() -> void:
 	position = GlobalWorldState.sunStartPosition
 func _process(delta: float) -> void:
@@ -68,17 +69,17 @@ func apply_force(force: Vector2) -> void:
 	# add acceleration to velocity
 	velocity += force/mass
 func check_edges():
-	if (position.x > get_viewport_rect().size.x):
-		position.x = get_viewport_rect().size.x
+	if (position.x > get_viewport_rect().size.x-padding.x):
+		position.x = get_viewport_rect().size.x-padding.x
 		velocity.x *= 0
-	elif (position.x < 0):
-		position.x = 0
+	elif (position.x < padding.x):
+		position.x = padding.x
 		velocity.x *= 0
-	if (position.y > get_viewport_rect().size.y):
-		position.y = get_viewport_rect().size.y
+	if (position.y > get_viewport_rect().size.y-padding.y):
+		position.y = get_viewport_rect().size.y-padding.y
 		velocity.y *= 0
-	elif (position.y < 0):
-		position.y = 0
+	elif (position.y < padding.y):
+		position.y = padding.y
 		velocity.y *= 0
 func spawn_flames(body: CharacterBody2D):
 	for i in range (0,5):
