@@ -47,10 +47,12 @@ func take_damage():
 func hitstun():
 	freeze = 0.5
 func launch(direction: Vector2):
+	GlobalWorldState.Score += 1
 	velocity = direction * speed * 5
 	launchTime = 0.25
 
 func launch2(direction: Vector2, power: float):
+	GlobalWorldState.Score += 1
 	velocity = direction * power
 	launchTime = 0.25
 
