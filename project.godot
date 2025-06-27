@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="6R4V17Y"
-run/main_scene="uid://dgl01h04586vw"
+run/main_scene="uid://b2h8ok8yfc7wb"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GlobalWorldState="*res://Autoload/GlobalWorldState.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [display]
 
@@ -28,6 +29,10 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="6R4V17Y"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/silent_wolf/plugin.cfg")
 
 [global_group]
 

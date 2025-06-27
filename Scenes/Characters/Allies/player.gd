@@ -7,11 +7,14 @@ var freeze = 0.0
 func _ready() -> void:
 	GlobalWorldState.Player = self
 	position = get_global_mouse_position()
+	GlobalWorldState.Score = 0 
 func _process(delta: float) -> void:
 	if freeze > 0.0: freeze -= delta
 	elif dead:
-		GlobalWorldState.Score = 0 
-		get_tree().change_scene_to_file("res://Scenes/UI/Titlescreen.tscn")
+		if (GlobalWorldState.Score > GlobalWorldState.GatekeeperScore):
+			get_tree().change_scene_to_file("res://Scenes/UI/NameEntry.tscn")
+		else:
+			get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")
 func _physics_process(delta: float) -> void:
 	if freeze > 0:
 		return
