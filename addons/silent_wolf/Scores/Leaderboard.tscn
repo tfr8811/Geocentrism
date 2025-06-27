@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2h8ok8yfc7wb"]
+[gd_scene load_steps=7 format=3 uid="uid://b2h8ok8yfc7wb"]
 
 [ext_resource type="Script" uid="uid://dk7xsx4pvrnfr" path="res://addons/silent_wolf/Scores/Leaderboard.gd" id="1"]
-[ext_resource type="Theme" uid="uid://d2eakbmaefnt6" path="res://addons/silent_wolf/assets/themes/sw_theme.tres" id="2_ixaq4"]
 [ext_resource type="PackedScene" uid="uid://clllbf6am8qdf" path="res://addons/silent_wolf/common/SWButton.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://c4h5mpg2pnn8u" path="res://Assets/Sprites/Background/BG_01.png" id="4_1pj1v"]
 [ext_resource type="Texture2D" uid="uid://1ks74ibutuog" path="res://Assets/Sprites/Background/BG_02.png" id="5_5afxj"]
@@ -26,7 +25,6 @@ offset_right = 1738.0
 offset_bottom = 1070.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("2_ixaq4")
 theme_override_constants/separation = 48
 alignment = 1
 
