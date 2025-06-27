@@ -38,6 +38,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			if faceFreeze <= 0:
 				faceAnim.set_animation("default")
+		# remap distance to make sun easier to fling around
+		distance = remap(distance, 170, 600, 200, 400)
 		# assuming G = 30000 and the masses are equal
 		var strength = 30000*mass*mass / (distance * distance);
 		force = force.normalized()
