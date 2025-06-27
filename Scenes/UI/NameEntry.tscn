@@ -1,19 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt7jsudd3y3q2"]
+[gd_scene load_steps=6 format=3 uid="uid://dt7jsudd3y3q2"]
 
 [ext_resource type="Script" uid="uid://c3wvi073bu84b" path="res://Scenes/UI/name_entry.gd" id="1_qap8i"]
 [ext_resource type="Script" uid="uid://c1upygcptgtxn" path="res://Scenes/UI/label.gd" id="2_o5f66"]
+[ext_resource type="Texture2D" uid="uid://c4h5mpg2pnn8u" path="res://Assets/Sprites/Background/BG_01.png" id="2_v18hs"]
+[ext_resource type="Texture2D" uid="uid://1ks74ibutuog" path="res://Assets/Sprites/Background/BG_02.png" id="3_nmb6e"]
+[ext_resource type="Texture2D" uid="uid://dtmf1l68xkce0" path="res://Assets/Sprites/Background/BG_03.png" id="4_jcrag"]
 
 [node name="NameEntry" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_qap8i")
 
+[node name="BG01" type="Sprite2D" parent="."]
+z_index = -5
+texture = ExtResource("2_v18hs")
+centered = false
+
+[node name="BG02" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("3_nmb6e")
+centered = false
+
+[node name="BG03" type="Sprite2D" parent="."]
+z_index = -5
+texture = ExtResource("4_jcrag")
+centered = false
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 548.0
-offset_top = 255.0
+offset_top = 248.0
 offset_right = 588.0
-offset_bottom = 278.0
+offset_bottom = 303.0
+theme_override_colors/font_color = Color(1, 0.760784, 0, 1)
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
 script = ExtResource("2_o5f66")
 
 [node name="SubmitButton" type="Button" parent="."]

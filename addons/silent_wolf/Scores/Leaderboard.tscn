@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2h8ok8yfc7wb"]
+[gd_scene load_steps=8 format=3 uid="uid://b2h8ok8yfc7wb"]
 
 [ext_resource type="Script" uid="uid://dk7xsx4pvrnfr" path="res://addons/silent_wolf/Scores/Leaderboard.gd" id="1"]
 [ext_resource type="Theme" uid="uid://d2eakbmaefnt6" path="res://addons/silent_wolf/assets/themes/sw_theme.tres" id="2_ixaq4"]
 [ext_resource type="PackedScene" uid="uid://clllbf6am8qdf" path="res://addons/silent_wolf/common/SWButton.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://c4h5mpg2pnn8u" path="res://Assets/Sprites/Background/BG_01.png" id="4_1pj1v"]
+[ext_resource type="Texture2D" uid="uid://1ks74ibutuog" path="res://Assets/Sprites/Background/BG_02.png" id="5_5afxj"]
+[ext_resource type="Texture2D" uid="uid://dtmf1l68xkce0" path="res://Assets/Sprites/Background/BG_03.png" id="6_jvj4b"]
 
 [sub_resource type="Theme" id="Theme_j1gah"]
 
@@ -32,8 +35,9 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Board/TitleContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.722641, 0.738762, 0.620712, 1)
 theme_override_font_sizes/font_size = 72
-text = "Leaderboard"
+text = "GEOCENTRISM"
 horizontal_alignment = 1
 
 [node name="MessageContainer" type="CenterContainer" parent="Board"]
@@ -59,6 +63,24 @@ layout_mode = 2
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Close Leaderboard"
+text = "Insert Coin"
+
+[node name="BG_01" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(422, 219)
+texture = ExtResource("4_1pj1v")
+centered = false
+
+[node name="BG_02" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(422, 219)
+texture = ExtResource("5_5afxj")
+centered = false
+
+[node name="BG_03" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(422, 219)
+texture = ExtResource("6_jvj4b")
+centered = false
 
 [connection signal="pressed" from="Board/CloseButtonContainer/CloseButton" to="." method="_on_CloseButton_pressed"]
