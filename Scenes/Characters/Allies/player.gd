@@ -1,8 +1,8 @@
 extends Area2D
-var dead = false
 @export var moon: Node2D
 @export var rainbow: Sprite2D
 var moonExplosion = preload("res://Scenes/Characters/Allies/MoonExplosion.tscn")
+var earthExplosion = preload("res://Scenes/Characters/Allies/EarthExplosion.tscn")
 var freeze = 0.0
 func _ready() -> void:
 	GlobalWorldState.Player = self
@@ -10,11 +10,6 @@ func _ready() -> void:
 	GlobalWorldState.Score = 0 
 func _process(delta: float) -> void:
 	if freeze > 0.0: freeze -= delta
-	elif dead:
-		if (GlobalWorldState.Score > GlobalWorldState.GatekeeperScore):
-			get_tree().change_scene_to_file("res://Scenes/UI/NameEntry.tscn")
-		else:
-			get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")
 func _physics_process(delta: float) -> void:
 	if freeze > 0:
 		return
@@ -31,7 +26,15 @@ func check_edges():
 		position.y = 0
 func take_damage():
 	hitstun()
-	dead = true
+	# pause for effect
+	Engine.time_scale = 0.005  # Adjust for desired freeze intensity
+	await get_tree().create_timer(0.008).timeout
+	Engine.time_scale = 1.0  # Resume normal speed
+	# earth explosion
+	var iEarthExplostion = earthExplosion.instantiate()
+	get_parent().add_child(iEarthExplostion)
+	iEarthExplostion.global_position = global_position
+	queue_free()
 
 func hitstun():
 	freeze = 0.5
