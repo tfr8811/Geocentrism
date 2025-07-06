@@ -5,6 +5,8 @@ var dead = false
 var invincibility = 0.0
 var launchTime = 0.0
 var freeze = 0.0
+# this caps combo depth to prevent the glitch
+var launchDepth = 0
 @export var sprite: AnimatedSprite2D
 @export var bloodAuraSprite: AnimatedSprite2D
 @export var hitbox: CollisionShape2D
@@ -31,9 +33,10 @@ func _physics_process(delta: float) -> void:
 			for i in get_slide_collision_count():
 				var collision = get_slide_collision(i)
 				var body = collision.get_collider()
-				if body.is_in_group("Enemy") && !body.is_launching():
+				if body.is_in_group("Enemy") && !body.is_launching() && launchDepth < 5:
 					var directionForLaunch = body.global_position - self.global_position
 					directionForLaunch = directionForLaunch.normalized()
+					body.launchDepth = launchDepth + 1
 					# multiply that velocity by 2 cuz a big bitch packs a punch
 					body.launch2(directionForLaunch, velocity.length()*2)
 	# reduce invincibility, this prevents double hits
@@ -56,15 +59,12 @@ func take_damage():
 func hitstun():
 	freeze = 0.5
 func launch(direction: Vector2):
-	if (is_launching()):
-		return
+	launchDepth = 1;
 	GlobalWorldState.Score += 1
 	velocity = direction * speed * 5
 	launchTime = 0.25
 
 func launch2(direction: Vector2, power: float):
-	if (is_launching()):
-		return
 	GlobalWorldState.Score += 1
 	# big bitch is heavy so the power gets divided by 2
 	velocity = direction * power/2

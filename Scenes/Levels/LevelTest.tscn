@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://1l25vkmupnw8"]
+
+[ext_resource type="PackedScene" uid="uid://b0q6s5vhq6tjc" path="res://Scenes/Characters/Allies/Player.tscn" id="1_j6f08"]
+[ext_resource type="Script" uid="uid://c1upygcptgtxn" path="res://Scenes/UI/label.gd" id="4_xib3o"]
+[ext_resource type="Texture2D" uid="uid://c4h5mpg2pnn8u" path="res://Assets/Sprites/Background/BG_01.png" id="5_iitq5"]
+[ext_resource type="PackedScene" uid="uid://drsohu3rcyap8" path="res://Scenes/Characters/Enemies/Demon.tscn" id="6_j6f08"]
+[ext_resource type="Texture2D" uid="uid://1ks74ibutuog" path="res://Assets/Sprites/Background/BG_02.png" id="6_tfws8"]
+[ext_resource type="PackedScene" uid="uid://bf2n33c8was3f" path="res://Scenes/Characters/Enemies/BigBitch.tscn" id="7_4122k"]
+[ext_resource type="Texture2D" uid="uid://dtmf1l68xkce0" path="res://Assets/Sprites/Background/BG_03.png" id="7_m5qxn"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_j6f08")]
+position = Vector2(871, 353)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 525.0
+offset_top = 34.0
+offset_right = 584.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(1, 0.760784, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("4_xib3o")
+
+[node name="BG_01" type="Sprite2D" parent="."]
+z_index = -5
+texture = ExtResource("5_iitq5")
+centered = false
+
+[node name="BG_02" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("6_tfws8")
+centered = false
+
+[node name="BG_03" type="Sprite2D" parent="."]
+z_index = -5
+texture = ExtResource("7_m5qxn")
+centered = false
+
+[node name="Demon" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(311, 268)
+
+[node name="Demon2" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(371, 281)
+
+[node name="Demon3" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(409, 334)
+
+[node name="Demon4" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(404, 399)
+
+[node name="Demon5" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(341, 444)
+
+[node name="Demon6" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(265, 439)
+
+[node name="Demon7" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(227, 374)
+
+[node name="Demon8" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(226, 310)
+
+[node name="Demon9" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(261, 258)
+
+[node name="Demon10" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(283, 218)
+
+[node name="Demon11" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(214, 248)
+
+[node name="Demon12" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(322, 214)
+
+[node name="Demon13" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(373, 229)
+
+[node name="Demon14" parent="." instance=ExtResource("6_j6f08")]
+position = Vector2(373, 229)
+
+[node name="BigBitch" parent="." instance=ExtResource("7_4122k")]
+position = Vector2(319, 357)

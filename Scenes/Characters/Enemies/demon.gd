@@ -3,6 +3,8 @@ var speed = 200
 var dead = false
 var launchTime = 0.0
 var freeze = 0.0
+# this caps combo depth to prevent the glitch
+var launchDepth = 0
 @export var eyeSprite: AnimatedSprite2D
 @export var fleshSprite: AnimatedSprite2D
 @export var bloodAuraSprite: AnimatedSprite2D
@@ -31,9 +33,10 @@ func _physics_process(delta: float) -> void:
 			for i in get_slide_collision_count():
 				var collision = get_slide_collision(i)
 				var body = collision.get_collider()
-				if body.is_in_group("Enemy") && !body.is_launching():
+				if body.is_in_group("Enemy") && !body.is_launching() && launchDepth < 5:
 					var directionForLaunch = body.global_position - self.global_position
 					directionForLaunch = directionForLaunch.normalized()
+					body.launchDepth = launchDepth + 1
 					body.launch2(directionForLaunch, velocity.length())
 func take_damage():
 	if !dead:
@@ -47,15 +50,12 @@ func take_damage():
 func hitstun():
 	freeze = 0.5
 func launch(direction: Vector2):
-	if (is_launching()):
-		return
+	launchDepth = 1
 	GlobalWorldState.Score += 1
 	velocity = direction * speed * 5
 	launchTime = 0.25
 
 func launch2(direction: Vector2, power: float):
-	if (is_launching()):
-		return
 	GlobalWorldState.Score += 1
 	velocity = direction * power
 	launchTime = 0.25
